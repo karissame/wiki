@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block maincontent %}
+<h1>All The Wikis</h1>
+<ul class="wiki_content">
+{% for page in pages: %}
+    <li><a href="/{{page.title}}">{{page.title}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
+</div>

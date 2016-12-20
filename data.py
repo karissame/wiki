@@ -36,11 +36,25 @@ class Page:
         query = "UPDATE page set content='%s',author='%s' WHERE title = '%s'" % (self.content,self.author,self.title)
         Database.doQuery(query)
         return True
-    # @staticmethod
-    # def update(content,author,title):
-    #     query = "UPDATE page set content='%s',author='%s' WHERE title = '%s'" % (content,author,title)
-    #     Database.doQuery(query)
-    #     return True
+
+    def delete(self):
+        query = ("UPDATE page set deleted=1 where title=%s"%self.title)
+        Database.doQuery(query)
+        return True
+
+    def __str__(self):
+     return self.title
+
+    @staticmethod
+    def getObjects():
+        query = "SELECT title FROM page where deleted=0"
+        result_set = Database.getResult(query)
+        allpages=[]
+        for item in result_set:
+            title = item[0]
+            allpages.append(Page(title))
+        return allpages
+
 class Database:
     @staticmethod
     def getConnection():
