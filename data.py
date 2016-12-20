@@ -16,7 +16,7 @@ class Page:
             self.last_modified = entry[3]
             self.author = entry[4]
             self.id = entry[0]
-        print "content is %s" % self.content
+        # print "content is %s" % self.content
 
     def getContent(self):
         return self.content
@@ -31,10 +31,16 @@ class Page:
         self.id=Database.doQuery(query)
         return self.id
         # lastId=cur.lastrowid
+
     def update(self):
         query = "UPDATE page set content='%s',author='%s' WHERE title = '%s'" % (self.content,self.author,self.title)
         Database.doQuery(query)
         return True
+    # @staticmethod
+    # def update(content,author,title):
+    #     query = "UPDATE page set content='%s',author='%s' WHERE title = '%s'" % (content,author,title)
+    #     Database.doQuery(query)
+    #     return True
 class Database:
     @staticmethod
     def getConnection():

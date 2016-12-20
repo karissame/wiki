@@ -3,7 +3,7 @@
 <h1>{{title}}</h1>
 <div class="wiki_content">
     {% if edit == 'true': %}
-        <form action="/submit" method='POST'>
+        <form name="save_update" action="/submitx" method='POST'>
             <input type="hidden" name="title" value="{{title}}">
             <label for="content">Content</label><br />
             <textarea name="content" class="shrinking" rows="20">{{content}}</textarea><br />
