@@ -1,0 +1,21 @@
+body {
+    background-color: #defae8 !important;
+}
+.btn {
+    background-color: #dadfe8;
+    position:relative;
+    margin-top: 15px;
+    display: inline-block;
+}
+input[type="text"],textarea {
+    width: 1000px;
+    padding: 3px;
+}
+@media screen and (min-width: 1050px) {
+    input[type="text"],textarea {
+        width: 700px;
+}
+@media screen and (min-width: 750px) {
+    input[type="text"],textarea {
+        width: 400px;
+}

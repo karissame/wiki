@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block maincontent %}
+<h1>{{title}}</h1>
+<div class="wiki_content">
+    {% if edit == 'true': %}
+        <form action="/submit" method='POST'>
+            <input type="hidden" name="title" value="{{title}}">
+            <label for="content">Content</label><br />
+            <textarea name="content" class="shrinking" rows="20">{{content}}</textarea><br />
+            <label for="author">Your Name</label>
+            <input type="text" name="author" size="30"><br />
+            <button type="submit" name="submit" value="Send">Save this Wiki</button>
+        </form>
+    {% else: %}
+        <p>{{content}}</p>
+        <a class="btn" role="button" href="?title={{title}}&edit=true">Edit Now</a>
+    {% endif %}
+    {% endblock %}
+</div>
